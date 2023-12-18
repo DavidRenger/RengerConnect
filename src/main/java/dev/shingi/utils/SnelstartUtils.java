@@ -12,7 +12,7 @@ import org.apache.http.util.EntityUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import dev.shingi.endpoints.Models.Grootboek;
+import dev.shingi.API.Models.OData.Grootboek;
 import dev.shingi.models.LedgerAccount;
 
 public class SnelstartUtils {

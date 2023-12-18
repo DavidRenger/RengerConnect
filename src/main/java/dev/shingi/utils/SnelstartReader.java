@@ -3,11 +3,11 @@ package dev.shingi.utils;
 import java.util.Collections;
 import java.util.List;
 
-import dev.shingi.endpoints.Models.Administratie;
-import dev.shingi.endpoints.Models.Grootboek;
-import dev.shingi.endpoints.Models.Inkoopfactuur;
-import dev.shingi.endpoints.Models.Relatie;
-import dev.shingi.endpoints.Regels.KolommenBalansRegel;
+import dev.shingi.API.Models.OData.Grootboek;
+import dev.shingi.API.Models.OData.Inkoopfactuur;
+import dev.shingi.API.Models.OData.Relatie;
+import dev.shingi.API.Regels.KolommenBalansRegel;
+import dev.shingi.API.endpoints.CompanyInfo;
 
 public class SnelstartReader {
     public static List<Grootboek> readGrootboeken(String bearerToken) {
@@ -58,7 +58,7 @@ public class SnelstartReader {
 
     public static void readCompanyInfo(String bearerToken) {
         // Fetch logic
-        Administratie companyInfo = (Administratie) SnelstartUtils.getObjectHttpRequest(bearerToken, Administratie.class, "https://b2bapi.snelstart.nl/v2/companyInfo");
+        CompanyInfo companyInfo = (CompanyInfo) SnelstartUtils.getObjectHttpRequest(bearerToken, CompanyInfo.class, "https://b2bapi.snelstart.nl/v2/companyInfo");
 
         // Printing logic
         try {
