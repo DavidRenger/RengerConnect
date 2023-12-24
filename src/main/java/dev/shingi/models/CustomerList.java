@@ -2,12 +2,28 @@ package dev.shingi.models;
 
 import java.util.*;
 
+import dev.shingi.services.AccountComparator;
+
 public class CustomerList {
 
     private List<Customer> customers;
+    private AccountComparator accountComparator;
 
-    public CustomerList() {
-        customers = new ArrayList<>();
+    private Map<Customer, Map<String, List<LedgerAccount>>> duplicateLedgerAccounts;
+    private List<LedgerAccount> uniqueLedgerAccounts;
+    private Map<String, List<LedgerAccount>> mismatchedLedgerAccounts;
+    private List<LedgerAccount> uniformLedgerAccounts;
+
+    public CustomerList(List<Customer> customers, boolean includeAccountComparator) {
+        this.customers = customers;
+
+        if (includeAccountComparator) {
+            runAccountComparator();
+        }
+    }
+
+    public void runAccountComparator() {
+        this.accountComparator = new AccountComparator(this);
     }
 
     public List<Customer> getCustomers() {
@@ -18,37 +34,42 @@ public class CustomerList {
         this.customers = customers;
     }
 
-    /**
-     * Identifies duplicate LedgerAccounts within each Customer's accounts based on description.
-     * 
-     * @param customers The CustomerList to be analyzed.
-     * @return A Map<Customer, Map<String, List<LedgerAccount>>>, where each Customer is mapped to a Map of 
-     *         LedgerAccount descriptions and Lists of LedgerAccounts with those descriptions.
-     *         Only includes Customers and descriptions with duplicates.
-     */
-    public Map<Customer, Map<String, List<LedgerAccount>>> identifyDuplicateLedgerAccounts() {
-        Map<Customer, Map<String, List<LedgerAccount>>> internalDuplicates = new HashMap<>();
-    
-        // Loop through all customers
-        for (Customer customer : this.customers) {
-            // First store all unique LedgerAccount descriptions in the accountMap key and all the LedgerAccounts with the same description the the value list
-            Map<String, List<LedgerAccount>> accountMap = new HashMap<>();
-            try { // Some customers do not have ledger accounts, so this will throw a NullPointerException
-                for (LedgerAccount account : customer.getLedgerAccounts()) {
-                    accountMap.computeIfAbsent(account.getOmschrijving(), k -> new ArrayList<>()).add(account);
-                }
-        
-                // If the list contains more than one LedgerAccount, you have a duplicate. Add to internalDuplicates.
-                for (Map.Entry<String, List<LedgerAccount>> entry : accountMap.entrySet()) {
-                    if (entry.getValue().size() > 1) { // More than one account with the same description
-                        internalDuplicates.computeIfAbsent(customer, k -> new HashMap<>()).put(entry.getKey(), entry.getValue());
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    
-        return internalDuplicates;
+    public AccountComparator getAccountComparator() {
+        return accountComparator;
+    }
+
+    public void setAccountComparator(AccountComparator accountComparator) {
+        this.accountComparator = accountComparator;
+    }
+    public Map<Customer, Map<String, List<LedgerAccount>>> getDuplicateLedgerAccounts() {
+        return duplicateLedgerAccounts;
+    }
+
+    public void setDuplicateLedgerAccounts(Map<Customer, Map<String, List<LedgerAccount>>> duplicateLedgerAccounts) {
+        this.duplicateLedgerAccounts = duplicateLedgerAccounts;
+    }
+
+    public List<LedgerAccount> getUniqueLedgerAccounts() {
+        return uniqueLedgerAccounts;
+    }
+
+    public void setUniqueLedgerAccounts(List<LedgerAccount> uniqueLedgerAccounts) {
+        this.uniqueLedgerAccounts = uniqueLedgerAccounts;
+    }
+
+    public Map<String, List<LedgerAccount>> getMismatchedLedgerAccounts() {
+        return mismatchedLedgerAccounts;
+    }
+
+    public void setMismatchedLedgerAccounts(Map<String, List<LedgerAccount>> mismatchedLedgerAccounts) {
+        this.mismatchedLedgerAccounts = mismatchedLedgerAccounts;
+    }
+
+    public List<LedgerAccount> getUniformLedgerAccounts() {
+        return uniformLedgerAccounts;
+    }
+
+    public void setUniformLedgerAccounts(List<LedgerAccount> uniformLedgerAccounts) {
+        this.uniformLedgerAccounts = uniformLedgerAccounts;
     }
 }

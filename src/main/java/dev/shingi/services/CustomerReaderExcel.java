@@ -7,7 +7,7 @@ import dev.shingi.models.CustomerList;
 public class CustomerReaderExcel extends AbstractReader {
 
     @Override
-    public CustomerList readCustomers() throws FileNotFoundException {
+    public CustomerList readCustomerData(boolean includeAccountComparator) throws FileNotFoundException {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'readCustomers'");
     }

@@ -14,15 +14,15 @@ public abstract class AbstractReader {
      * @return a CustomerList object.
      * @throws FileNotFoundException
      */
-    public abstract CustomerList readCustomers() throws FileNotFoundException;
+    public abstract CustomerList readCustomerData(boolean includeAccountComparator) throws FileNotFoundException;
 
     public void validateAccounts(List<LedgerAccount> accounts) {
         // Implementation for validation
     }
 
-    private CustomerList readClientNamesAndKeys() throws FileNotFoundException {
-        CustomerList customerList = new CustomerList();
-        
+    public List<Customer> readClientNamesAndKeysFromFile() throws FileNotFoundException {
+        List<Customer> customers = new ArrayList<>();
+
         Scanner sc = new Scanner(new File("RengerConnect/Client keys.txt"));
         Scanner lineScanner;
 
@@ -41,15 +41,10 @@ public abstract class AbstractReader {
             System.out.println(customer);
 
             if (customer.getClientKey() != null) {
-                customerList.getCustomers().add(customer);
+                customers.add(customer);
             }
         }
 
-        return customerList;
-    }
-
-    // Protected or public method to provide access to the CustomerList
-    protected CustomerList getCustomerList() throws FileNotFoundException {
-        return readClientNamesAndKeys();
+        return customers;
     }
 }

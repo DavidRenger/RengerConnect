@@ -17,26 +17,20 @@ public class Main {
          * Uncomment the two lines below if reading customers through Snelstart API
          */
         CustomerReaderSnelstart snelstartCustomerReader = new CustomerReaderSnelstart(); 
-        customerList = snelstartCustomerReader.readCustomers();
+        customerList = snelstartCustomerReader.readCustomerData(true);
 
         /*
          * Uncomment the two lines below if reading customers from Excel file
          */
         // CustomerReaderExcel customerReaderExcel = new CustomerReaderExcel();
-        // customerList = customerReaderExcel.readCustomers();
-
-        /*
-         * Call the account comparison functionality of the program
-         */
-        // Compare ledger accounts
-        AccountComparator accountComparator = new AccountComparator(customerList);
+        // customerList = customerReaderExcel.readCustomerData(true);
 
         ExcelExporter excelExporter = new ExcelExporter();
         excelExporter.exportComparisonsToExcel(
-            accountComparator.getDuplicateLedgerAccounts(), 
-            accountComparator.getUniqueLedgerAccounts(), 
-            accountComparator.getMismatchedLedgerAccounts(),
-            accountComparator.getUniformLedgerAccounts(), 
+            customerList.getDuplicateLedgerAccounts(), 
+            customerList.getUniqueLedgerAccounts(), 
+            customerList.getMismatchedLedgerAccounts(),
+            customerList.getUniformLedgerAccounts(), 
             fileOutputPath + "\\Comparison results.xlsx");
     }
 }

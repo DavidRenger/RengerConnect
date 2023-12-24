@@ -9,9 +9,9 @@ import dev.shingi.utils.SnelstartUtils;
 
 public class CustomerReaderSnelstart extends AbstractReader {
     
-    public CustomerList readCustomers() throws FileNotFoundException {
+    public CustomerList readCustomerData(boolean includeAccountComparator) throws FileNotFoundException {
 
-        CustomerList customerList = getCustomerList();
+        CustomerList customerList = new CustomerList(readClientNamesAndKeysFromFile(), true); // Method in Abstractreader class
 
         int customerCount = 0;
 
