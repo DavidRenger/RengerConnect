@@ -7,7 +7,7 @@ import java.util.List;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import dev.shingi.API.Models.OData.Relatie;
+import dev.shingi.API.endpoints.models.OData.Relatie;
 
 public class ExcelUtils {
 

@@ -3,11 +3,12 @@ package dev.shingi.utils;
 import java.util.Collections;
 import java.util.List;
 
-import dev.shingi.API.Models.OData.Grootboek;
-import dev.shingi.API.Models.OData.Inkoopfactuur;
-import dev.shingi.API.Models.OData.Relatie;
-import dev.shingi.API.Regels.KolommenBalansRegel;
-import dev.shingi.API.endpoints.CompanyInfo;
+import dev.shingi.API.endpoints.lines.KolommenBalansRegel;
+import dev.shingi.API.endpoints.models.OData.Grootboek;
+import dev.shingi.API.endpoints.models.OData.GrootboekMutatie;
+import dev.shingi.API.endpoints.models.OData.Inkoopfactuur;
+import dev.shingi.API.endpoints.models.OData.Relatie;
+import dev.shingi.API.endpoints.objects.CompanyInfo;
 
 public class SnelstartReader {
     public static List<Grootboek> readGrootboeken(String bearerToken) {
@@ -56,19 +57,8 @@ public class SnelstartReader {
         System.out.println("Debet Winst&Verlies, Credit Winst&Verlies, Debet Balans, Credit Balans\n");
     }
 
-    public static void readCompanyInfo(String bearerToken) {
-        // Fetch logic
-        CompanyInfo companyInfo = (CompanyInfo) SnelstartUtils.getObjectHttpRequest(bearerToken, CompanyInfo.class, "https://b2bapi.snelstart.nl/v2/companyInfo");
-
-        // Printing logic
-        try {
-            System.out.println(companyInfo.getVrijeTekst1());
-            System.out.println(companyInfo.getVrijeTekst2());
-            System.out.println(companyInfo.getVrijeTekst3());
-            System.out.println(companyInfo.getVrijeTekst4());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public static CompanyInfo readCompanyInfo(String bearerToken) {
+        return (CompanyInfo) SnelstartUtils.getObjectHttpRequest(bearerToken, CompanyInfo.class, "https://b2bapi.snelstart.nl/v2/companyInfo");
     }
 
     public static List<Relatie> readRelatieInfo(String bearerToken) {
@@ -96,5 +86,9 @@ public class SnelstartReader {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static List<GrootboekMutatie> readGrootboekMutaties(String bearerToken) {
+        return null;
     }
 }
