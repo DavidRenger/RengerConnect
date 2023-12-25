@@ -1,8 +1,9 @@
-package dev.shingi.API.endpoints.models.modelArrays;
+package dev.shingi.api.endpoints.models.modelArrays;
 
-import dev.shingi.API.endpoints.models.OData.ActiePrijs;
+import dev.shingi.api.endpoints.models.ModelEndpoint;
+import dev.shingi.api.endpoints.models.OData.ActiePrijs;
 
-public class Actieprijzen extends AbstractModelEndpoint<ActiePrijs> {
+public class Actieprijzen extends ModelEndpoint<ActiePrijs> {
 
     public Actieprijzen() {
         super("actieprijzen", ActiePrijs.class);

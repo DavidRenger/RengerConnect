@@ -1,19 +1,19 @@
-package dev.shingi.API.endpoints.lines;
+package dev.shingi.api.endpoints.lines;
 
 import java.util.List;
 
-import dev.shingi.API.endpoints.models.submodels.Identifier;
+import dev.shingi.api.endpoints.models.submodels.BaseModel;
 
 public class KolommenBalansRegel implements Comparable<KolommenBalansRegel> {
 
-    private Identifier grootboekIdentifier;
+    private BaseModel grootboekIdentifier;
     private String grootboekOmschrijving;
     private int grootboekNummer;
     private double verliesEnWinstDebet;
     private double verliesEnWinstCredit;
     private double balansDebet;
     private double balansCredit;
-    private List<Identifier> rgsCode;
+    private List<BaseModel> rgsCode;
     
     @Override
     public String toString() {
@@ -34,11 +34,11 @@ public class KolommenBalansRegel implements Comparable<KolommenBalansRegel> {
 
     // Getters and Setters 
 
-    public Identifier getGrootboekIdentifier() {
+    public BaseModel getGrootboekIdentifier() {
         return grootboekIdentifier;
     }
 
-    public void setGrootboekIdentifier(Identifier grootboekIdentifier) {
+    public void setGrootboekIdentifier(BaseModel grootboekIdentifier) {
         this.grootboekIdentifier = grootboekIdentifier;
     }
 
@@ -90,11 +90,11 @@ public class KolommenBalansRegel implements Comparable<KolommenBalansRegel> {
         this.balansCredit = balansCredit;
     }
 
-    public List<Identifier> getRgsCode() {
+    public List<BaseModel> getRgsCode() {
         return rgsCode;
     }
 
-    public void setRgsCode(List<Identifier> rgsCode) {
+    public void setRgsCode(List<BaseModel> rgsCode) {
         this.rgsCode = rgsCode;
     }
 }

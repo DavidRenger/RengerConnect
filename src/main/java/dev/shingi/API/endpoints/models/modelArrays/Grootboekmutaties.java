@@ -1,11 +1,12 @@
-package dev.shingi.API.endpoints.models.modelArrays;
+package dev.shingi.api.endpoints.models.modelArrays;
 
-import dev.shingi.API.endpoints.models.OData.GrootboekMutatie;
+import dev.shingi.api.endpoints.models.ModelEndpoint;
+import dev.shingi.api.endpoints.models.OData.GrootboekMutatie;
 
-public class Grootboekmutaties extends AbstractModelEndpoint<GrootboekMutatie> {
+public class Grootboekmutaties extends ModelEndpoint<GrootboekMutatie> {
 
-    public Grootboekmutaties(String uriExtension, Class<GrootboekMutatie> objectClass) {
-        super(uriExtension, objectClass);
+    public Grootboekmutaties(String uriExtension, Class<GrootboekMutatie> objectClass, String bearerToken) {
+        super("grootboekmutaties", GrootboekMutatie.class, bearerToken);
         //TODO Auto-generated constructor stub
     }
 

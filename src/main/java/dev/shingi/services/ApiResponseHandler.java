@@ -1,5 +1,5 @@
 package dev.shingi.services;
 
-public class StandardizationAgent {
+public class ApiResponseHandler {
     
 }

@@ -1,12 +1,10 @@
-package dev.shingi.API.endpoints.models.OData;
+package dev.shingi.api.endpoints.models.OData;
 
-import java.util.UUID;
+import dev.shingi.api.endpoints.models.submodels.BaseModel;
 
-import dev.shingi.API.endpoints.models.submodels.Identifier;
-
-public class Inkoopfactuur {
-    Identifier relatieIdentifierModel;
-    Identifier inkoopboekingIdentifierModel;
+public class Inkoopfactuur extends BaseModel {
+    Relatie relatie;
+    Inkoopboeking inkoopboeking;
 
     String modifiedOn;
     Double openstaandSaldo;
@@ -14,8 +12,6 @@ public class Inkoopfactuur {
     String vervalDatum;
     String factuurDatum;
     Double factuurBedrag;
-    UUID id;
-    String uri;
 
     @Override
     public String toString() {
@@ -26,22 +22,6 @@ public class Inkoopfactuur {
         //         + inkoopboekingIdentifierModel + ", modifiedOn=" + modifiedOn + ", openstaandSaldo=" + openstaandSaldo
         //         + ", factuurnummer=" + factuurnummer + ", vervalDatum=" + vervalDatum + ", factuurDatum=" + factuurDatum
         //         + ", factuurBedrag=" + factuurBedrag + ", id=" + id + ", uri=" + uri + "]";
-    }
-
-    public Identifier getRelatieIdentifierModel() {
-        return relatieIdentifierModel;
-    }
-
-    public void setRelatieIdentifierModel(Identifier relatieIdentifierModel) {
-        this.relatieIdentifierModel = relatieIdentifierModel;
-    }
-
-    public Identifier getInkoopboekingIdentifierModel() {
-        return inkoopboekingIdentifierModel;
-    }
-
-    public void setInkoopboekingIdentifierModel(Identifier inkoopboekingIdentifierModel) {
-        this.inkoopboekingIdentifierModel = inkoopboekingIdentifierModel;
     }
 
     public String getModifiedOn() {
@@ -91,22 +71,4 @@ public class Inkoopfactuur {
     public void setFactuurBedrag(Double factuurBedrag) {
         this.factuurBedrag = factuurBedrag;
     }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public String getUri() {
-        return uri;
-    }
-
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
-
-    
 }

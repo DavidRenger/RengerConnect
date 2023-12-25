@@ -1,19 +1,19 @@
-package dev.shingi.API.endpoints.objects;
+package dev.shingi.api.endpoints.objects;
 
-import dev.shingi.API.endpoints.Endpoint;
+import dev.shingi.api.Endpoint;
 import dev.shingi.utils.HttpClientUtil;
 
-public abstract class AbstractObjectEndpoint<T> implements Endpoint<T> {
+public abstract class ObjectEndpoint<T> extends Endpoint {
     protected String uri;
     protected Class<T> clazz;
-    protected Object object;
 
-    public AbstractObjectEndpoint(String uriExtension, Class<T> clazz) {
-        this.uri = BASE_URI + uriExtension; // BASE_URI is defined in the Endpoint interface
+    private T object;
+
+    public ObjectEndpoint(String uriExtension, Class<T> clazz) {
+        super(uriExtension);
         this.clazz = clazz;
     }
 
-    @Override
     public void getHttpRequest(String bearerToken) {
         String jsonResponse = HttpClientUtil.executeHttpGet(uri, bearerToken);
 
@@ -22,10 +22,15 @@ public abstract class AbstractObjectEndpoint<T> implements Endpoint<T> {
         }
     }
     
-    @Override
     public void parseJsonResponse(String jsonResponse) {
         this.object = gson.fromJson(jsonResponse, this.clazz);
     }
 
-    public abstract String toString();
+    public T getObject() {
+        return object;
+    }
+
+    public void setObject(T object) {
+        this.object = object;
+    }
 }

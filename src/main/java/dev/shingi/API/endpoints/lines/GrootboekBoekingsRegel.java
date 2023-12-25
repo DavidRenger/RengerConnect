@@ -1,8 +1,8 @@
-package dev.shingi.API.endpoints.lines;
+package dev.shingi.api.endpoints.lines;
 
-import dev.shingi.API.endpoints.models.*;
-import dev.shingi.API.endpoints.models.OData.Grootboek;
-import dev.shingi.API.endpoints.models.submodels.Kostenplaats;
+import dev.shingi.api.endpoints.models.*;
+import dev.shingi.api.endpoints.models.OData.Grootboek;
+import dev.shingi.api.endpoints.models.submodels.Kostenplaats;
 public class GrootboekBoekingsRegel {
     private String omschrijving;
     private Grootboek grootboek;

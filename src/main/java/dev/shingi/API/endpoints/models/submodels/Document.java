@@ -1,4 +1,4 @@
-package dev.shingi.API.endpoints.models.submodels;
+package dev.shingi.api.endpoints.models.submodels;
 
 import java.util.UUID;
 

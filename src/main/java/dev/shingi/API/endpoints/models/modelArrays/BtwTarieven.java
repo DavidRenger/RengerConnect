@@ -1,4 +1,4 @@
-package dev.shingi.API.endpoints.models.modelArrays;
+package dev.shingi.api.endpoints.models.modelArrays;
 
 public class BtwTarieven {
     

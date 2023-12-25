@@ -1,12 +1,12 @@
 
-package dev.shingi.API.endpoints.models.submodels;
+package dev.shingi.api.endpoints.models.submodels;
 
 public class Adres {
     private String contactpersoon;
     private String straat;
     private String postcode;
     private String plaats;
-    private Identifier land;
+    private BaseModel land;
 
     public String getContactpersoon() {
         return contactpersoon;
@@ -32,10 +32,10 @@ public class Adres {
     public void setPlaats(String plaats) {
         this.plaats = plaats;
     }
-    public Identifier getLand() {
+    public BaseModel getLand() {
         return land;
     }
-    public void setLand(Identifier land) {
+    public void setLand(BaseModel land) {
         this.land = land;
     }
 }

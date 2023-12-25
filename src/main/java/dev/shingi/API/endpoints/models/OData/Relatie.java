@@ -1,12 +1,12 @@
-package dev.shingi.API.endpoints.models.OData;
+package dev.shingi.api.endpoints.models.OData;
 
 import java.util.List;
 import java.util.UUID;
 
-import dev.shingi.API.endpoints.models.submodels.Adres;
-import dev.shingi.API.endpoints.models.submodels.Document;
-import dev.shingi.API.endpoints.models.submodels.EmailVersturen;
-import dev.shingi.API.endpoints.models.submodels.ExtraVeldKlant;
+import dev.shingi.api.endpoints.models.submodels.Adres;
+import dev.shingi.api.endpoints.models.submodels.Document;
+import dev.shingi.api.endpoints.models.submodels.EmailVersturen;
+import dev.shingi.api.endpoints.models.submodels.ExtraVeldKlant;
 
 public class Relatie {
     private List<String> relatiesoort; // Klant of Leverancier

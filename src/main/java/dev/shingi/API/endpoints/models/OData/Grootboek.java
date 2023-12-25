@@ -1,5 +1,5 @@
 
-package dev.shingi.API.endpoints.models.OData;
+package dev.shingi.api.endpoints.models.OData;
 
 import java.util.List;
 import java.util.Map;

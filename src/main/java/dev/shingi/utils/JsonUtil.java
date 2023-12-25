@@ -1,5 +1,5 @@
 package dev.shingi.utils;
 
-public class ExcelReader {
+public class JsonUtil {
     
 }

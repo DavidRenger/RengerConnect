@@ -3,44 +3,14 @@ package dev.shingi.utils;
 import java.util.Collections;
 import java.util.List;
 
-import dev.shingi.API.endpoints.lines.KolommenBalansRegel;
-import dev.shingi.API.endpoints.models.OData.Grootboek;
-import dev.shingi.API.endpoints.models.OData.GrootboekMutatie;
-import dev.shingi.API.endpoints.models.OData.Inkoopfactuur;
-import dev.shingi.API.endpoints.models.OData.Relatie;
-import dev.shingi.API.endpoints.objects.CompanyInfo;
+import dev.shingi.api.endpoints.lines.KolommenBalansRegel;
+import dev.shingi.api.endpoints.models.OData.Grootboek;
+import dev.shingi.api.endpoints.models.OData.GrootboekMutatie;
+import dev.shingi.api.endpoints.models.OData.Inkoopfactuur;
+import dev.shingi.api.endpoints.models.OData.Relatie;
+import dev.shingi.api.endpoints.objects.CompanyInfo;
 
 public class SnelstartReader {
-    public static List<Grootboek> readGrootboeken(String bearerToken) {
-        // Fetch logic
-        List<Grootboek> grootboeken = SnelstartUtils.getModelHttpRequest(bearerToken, Grootboek.class, "https://b2bapi.snelstart.nl/v2/grootboeken");
-
-        // Sort list
-        Collections.sort(grootboeken);
-
-        // Printing logic
-        System.out.println("\nGrootboeken:");
-        for (Grootboek grootboek : grootboeken) {
-            System.out.println(grootboek);
-        }
-
-        // Convert Grootboek objects to LedgerAccount objects via a util function in SnelstartUtils and return the list.
-        return grootboeken;
-    }
-    
-    public static void readInkoopFacturen(String bearerToken) {
-        // Fetch logic
-        List<Inkoopfactuur> inkoopfacturen = SnelstartUtils.getModelHttpRequest(bearerToken, Inkoopfactuur.class, "https://b2bapi.snelstart.nl/v2/inkoopfacturen");
-
-        // Printing logic
-        System.out.println("\nOpenstaande inkoopfacturen:");
-        for (Inkoopfactuur inkoopfactuur : inkoopfacturen) {
-            if (inkoopfactuur.getOpenstaandSaldo() > 0 || inkoopfactuur.getOpenstaandSaldo() < 0) { 
-                System.out.println(inkoopfactuur);
-            }
-        }
-        System.out.println();
-    }
 
     public static void readKolommenBalans(String bearerToken, String startDate, String endDate) {
         // Fetch logic

@@ -1,8 +1,8 @@
-package dev.shingi.API.endpoints.models.submodels;
+package dev.shingi.api.endpoints.models.submodels;
 
 import java.util.UUID;
 
-public class Identifier {
+public abstract class BaseModel {
     private UUID id;
     private String uri;
 

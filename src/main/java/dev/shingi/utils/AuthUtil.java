@@ -14,7 +14,7 @@ import org.apache.http.util.EntityUtils;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-public class SnelstartAuthentication {
+public class AuthUtil {
     private static long tokenExpirationTime = 0; // Timestamp of when the token expires
     
     public static String getBearerToken(String clientKey) {
@@ -54,6 +54,6 @@ public class SnelstartAuthentication {
     }
 
     public static void setTokenExpirationTime(long tokenExpirationTime) {
-        SnelstartAuthentication.tokenExpirationTime = tokenExpirationTime;
+        AuthUtil.tokenExpirationTime = tokenExpirationTime;
     }
 }

@@ -1,10 +1,11 @@
-package dev.shingi.API.endpoints.models.OData;
+package dev.shingi.api.endpoints.models.OData;
 
 import java.util.List;
 import java.util.UUID;
 
-import dev.shingi.API.endpoints.lines.*;
-import dev.shingi.API.endpoints.models.submodels.Identifier;
+import dev.shingi.api.endpoints.lines.*;
+import dev.shingi.api.endpoints.models.submodels.Dagboek;
+import dev.shingi.api.endpoints.models.submodels.BaseModel;
 
 public class Bankboeking {
     private String modifiedOn;
@@ -19,7 +20,7 @@ public class Bankboeking {
     private List<BtwBoekingsRegel> btwBoekingsRegels;
     private double bedragUitgegeven;
     private double bedragOntvangen;
-    private Identifier dagboek;
+    private Dagboek dagboek;
     private UUID id;
     private String uri;
 
@@ -95,10 +96,10 @@ public class Bankboeking {
     public void setBedragOntvangen(double bedragOntvangen) {
         this.bedragOntvangen = bedragOntvangen;
     }
-    public Identifier getDagboek() {
+    public BaseModel getDagboek() {
         return dagboek;
     }
-    public void setDagboek(Identifier dagboek) {
+    public void setDagboek(BaseModel dagboek) {
         this.dagboek = dagboek;
     }
     public UUID getId() {

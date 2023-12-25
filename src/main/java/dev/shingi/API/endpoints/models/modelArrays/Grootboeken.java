@@ -1,24 +1,41 @@
-package dev.shingi.API.endpoints.models.modelArrays;
+package dev.shingi.api.endpoints.models.modelArrays;
 
-import dev.shingi.API.endpoints.models.OData.Grootboek;
+import java.util.Collections;
+import java.util.List;
 
-public class Grootboeken extends AbstractModelEndpoint<Grootboek> {
+import dev.shingi.api.endpoints.models.ModelEndpoint;
+import dev.shingi.api.endpoints.models.OData.Grootboek;
+import dev.shingi.utils.UriUtils;
 
-    public Grootboeken(String uriExtension, Class<Grootboek> objectClass) {
-        super(uriExtension, objectClass);
-        //TODO Auto-generated constructor stub
+public class Grootboeken {
+
+    private static Class<Grootboek> clazz = Grootboek.class;
+    private static String endpoint = "grootboeken";
+
+    public static List<Grootboek> readObjects(String bearerToken, UriUtils uriUtils) {
+        // Get objects
+        List<Grootboek> grootboeken = ModelEndpoint.getHttpRequest(bearerToken, uriUtils.getUriExtension(endpoint), clazz);
+
+        // Apply sorting
+        Collections.sort(grootboeken);
+
+        // Return list
+        return grootboeken;
     }
 
-    @Override
-    public String toString() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'toString'");
-    }
+    // @Override
+    // public String toString() {
+    //     StringBuilder sb = new StringBuilder();
 
-    @Override
-    public Grootboek readData(String bearerToken) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'readData'");
-    }
-    
+    //     // Top line
+    //     sb.append("Grootboeken:\n");
+
+    //     // Body
+    //     for (Grootboek grootboek : this.grootboeken) {
+    //         sb.append(grootboek);
+    //         sb.append("\n");
+    //     }
+
+    //     return sb.toString();
+    // }
 }

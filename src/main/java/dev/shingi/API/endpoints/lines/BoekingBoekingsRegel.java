@@ -1,17 +1,17 @@
-package dev.shingi.API.endpoints.lines;
+package dev.shingi.api.endpoints.lines;
 
-import dev.shingi.API.endpoints.models.submodels.Identifier;
+import dev.shingi.api.endpoints.models.submodels.BaseModel;
 
 public class BoekingBoekingsRegel {
-    private Identifier boekingId;
+    private BaseModel boekingId;
     private String omschrijving;
     private double debet;
     private double credit;
 
-    public Identifier getBoekingId() {
+    public BaseModel getBoekingId() {
         return boekingId;
     }
-    public void setBoekingId(Identifier boekingId) {
+    public void setBoekingId(BaseModel boekingId) {
         this.boekingId = boekingId;
     }
     public String getOmschrijving() {

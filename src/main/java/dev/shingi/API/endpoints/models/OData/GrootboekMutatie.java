@@ -1,11 +1,11 @@
-package dev.shingi.API.endpoints.models.OData;
+package dev.shingi.api.endpoints.models.OData;
 
 import java.util.List;
 
-import dev.shingi.API.endpoints.models.submodels.Dagboek;
-import dev.shingi.API.endpoints.models.submodels.Document;
-import dev.shingi.API.endpoints.models.submodels.Identifier;
-import dev.shingi.API.endpoints.models.submodels.Kostenplaats;
+import dev.shingi.api.endpoints.models.submodels.Dagboek;
+import dev.shingi.api.endpoints.models.submodels.Document;
+import dev.shingi.api.endpoints.models.submodels.BaseModel;
+import dev.shingi.api.endpoints.models.submodels.Kostenplaats;
 
 public class GrootboekMutatie {
     private Grootboek grootboek;
@@ -20,7 +20,7 @@ public class GrootboekMutatie {
     private List<Document> documents;
     private String boekstuk;
     private String factuurNummer;
-    private Identifier relatiePublicIdentifier;
+    private BaseModel relatiePublicIdentifier;
     private String id;
     private String uri;
 
@@ -98,10 +98,10 @@ public class GrootboekMutatie {
     public void setFactuurNummer(String factuurNummer) {
         this.factuurNummer = factuurNummer;
     }
-    public Identifier getRelatiePublicIdentifier() {
+    public BaseModel getRelatiePublicIdentifier() {
         return relatiePublicIdentifier;
     }
-    public void setRelatiePublicIdentifier(Identifier relatiePublicIdentifier) {
+    public void setRelatiePublicIdentifier(BaseModel relatiePublicIdentifier) {
         this.relatiePublicIdentifier = relatiePublicIdentifier;
     }
     public String getId() {

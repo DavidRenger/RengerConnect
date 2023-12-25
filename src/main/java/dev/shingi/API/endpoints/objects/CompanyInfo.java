@@ -1,11 +1,11 @@
-package dev.shingi.API.endpoints.objects;
+package dev.shingi.api.endpoints.objects;
 
 import java.util.List;
 import java.util.UUID;
 
-import dev.shingi.API.endpoints.lines.KleineOndernemersregeling;
-import dev.shingi.API.endpoints.models.submodels.BtwRange;
-import dev.shingi.API.endpoints.models.submodels.Identifier;
+import dev.shingi.api.endpoints.lines.KleineOndernemersregeling;
+import dev.shingi.api.endpoints.models.submodels.BtwRange;
+import dev.shingi.api.endpoints.models.submodels.BaseModel;
 
 public class CompanyInfo {
     private UUID administratieIdentifier;
@@ -69,9 +69,9 @@ public class CompanyInfo {
     private String verkooporderVoorraadVanafNiveau;
     private String voorraadSysteem;
     private String momentVoorraadBijwerken;
-    private Identifier rekeningTeOntvangenInkoopfacturen;
-    private Identifier dagboekVoorraadverschillen;
-    private Identifier buitenlandseBtwGrootboek;
+    private BaseModel rekeningTeOntvangenInkoopfacturen;
+    private BaseModel dagboekVoorraadverschillen;
+    private BaseModel buitenlandseBtwGrootboek;
     private boolean factureerBuitenlandsBtw;
     private List<BtwRange> factureerBuitenlandsBtwRanges;
 
@@ -443,22 +443,22 @@ public class CompanyInfo {
     public void setMomentVoorraadBijwerken(String momentVoorraadBijwerken) {
         this.momentVoorraadBijwerken = momentVoorraadBijwerken;
     }
-    public Identifier getRekeningTeOntvangenInkoopfacturen() {
+    public BaseModel getRekeningTeOntvangenInkoopfacturen() {
         return rekeningTeOntvangenInkoopfacturen;
     }
-    public void setRekeningTeOntvangenInkoopfacturen(Identifier rekeningTeOntvangenInkoopfacturen) {
+    public void setRekeningTeOntvangenInkoopfacturen(BaseModel rekeningTeOntvangenInkoopfacturen) {
         this.rekeningTeOntvangenInkoopfacturen = rekeningTeOntvangenInkoopfacturen;
     }
-    public Identifier getDagboekVoorraadverschillen() {
+    public BaseModel getDagboekVoorraadverschillen() {
         return dagboekVoorraadverschillen;
     }
-    public void setDagboekVoorraadverschillen(Identifier dagboekVoorraadverschillen) {
+    public void setDagboekVoorraadverschillen(BaseModel dagboekVoorraadverschillen) {
         this.dagboekVoorraadverschillen = dagboekVoorraadverschillen;
     }
-    public Identifier getBuitenlandseBtwGrootboek() {
+    public BaseModel getBuitenlandseBtwGrootboek() {
         return buitenlandseBtwGrootboek;
     }
-    public void setBuitenlandseBtwGrootboek(Identifier buitenlandseBtwGrootboek) {
+    public void setBuitenlandseBtwGrootboek(BaseModel buitenlandseBtwGrootboek) {
         this.buitenlandseBtwGrootboek = buitenlandseBtwGrootboek;
     }
     public boolean isFactureerBuitenlandsBtw() {
